@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:twitter_ui/color/app_color.dart';
-import 'package:twitter_ui/widgets/reaction_container.dart';
-import 'package:twitter_ui/widgets/user_details_panel.dart';
+import 'package:internship_work/app/widgets/reaction_container.dart';
+import 'package:internship_work/app/widgets/user_details_panel.dart';
+
+import '../config/colors.dart';
 
 class PostCard extends StatefulWidget {
   const PostCard({super.key});
@@ -17,9 +17,8 @@ class PostCard extends StatefulWidget {
 class _PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      //height: 390.h,
       //color: Colors.amber,
       child: Column(
         children: [
@@ -58,8 +57,7 @@ class _PostCardState extends State<PostCard> {
                 ),
                 height: 55.h,
                 width: 55.h,
-                decoration: BoxDecoration(
-                  //borderRadius: BorderRadius.circular(),
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/img/Roundpro.jpg'),
                   ),
@@ -72,7 +70,7 @@ class _PostCardState extends State<PostCard> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      UserDetailsPanel(),
+                      const UserDetailsPanel(),
                       IconButton(
                         onPressed: () {},
                         icon: Icon(
@@ -98,7 +96,10 @@ class _PostCardState extends State<PostCard> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  Container(width: 230.h, child: ReactionContainer()),
+                  SizedBox(
+                    width: 230.h,
+                    child: const ReactionContainer(),
+                  ),
                 ],
               ),
             ],
@@ -106,7 +107,7 @@ class _PostCardState extends State<PostCard> {
           SizedBox(
             height: 4.h,
           ),
-          Divider(
+          const Divider(
             thickness: 0.1,
             color: AppColors.unselectedIconColor,
           ),

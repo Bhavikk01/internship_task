@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:twitter_ui/color/app_color.dart';
+
+import '../config/colors.dart';
 
 class UserDetailsPanel extends StatefulWidget {
   const UserDetailsPanel({super.key});

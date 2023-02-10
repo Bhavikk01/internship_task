@@ -1,33 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:internship_work/app/services/post_controller.dart';
+import 'package:internship_work/app/widgets/post_card.dart';
 
 class HomePage extends GetView<PostController> {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
+  ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      if(controller.isLoading.value){
-        return const Center(child: CircularProgressIndicator());
-      }else{
-        return Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                controller: controller.scrollController,
-                itemCount: controller.state.posts.length,
-                itemBuilder: (context, index){
-                  return Container();
-                },
+    return Scaffold(
+      body: Obx(() {
+        controller.scrollController = scrollController;
+        if(controller.isLoading.value){
+          return const Center(child: CircularProgressIndicator());
+        }else{
+          return Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  controller: scrollController,
+                  itemCount: controller.state.posts.length,
+                  itemBuilder: (context, index){
+                    return const PostCard();
+                  },
+                ),
               ),
-            ),
-            controller.isLoadingMore.value
-                ? const CircularProgressIndicator()
-                : Container()
-          ],
-        );
-      }
-    });
+              controller.isLoadingMore.value
+                  ? const CircularProgressIndicator()
+                  : Container()
+            ],
+          );
+        }
+      }),
+    );
   }
 }

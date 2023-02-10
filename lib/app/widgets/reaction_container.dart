@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:twitter_ui/widgets/reaction_status.dart';
+import 'package:internship_work/app/widgets/reaction_status.dart';
 
 class ReactionContainer extends StatefulWidget {
   const ReactionContainer({super.key});
@@ -15,7 +14,7 @@ class _ReactionContainerState extends State<ReactionContainer> {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
+      children: const [
         ReactionStatus(
           svgImagePath: 'assets/icon/Comment Stroke Icon.svg',
           count: 7,
