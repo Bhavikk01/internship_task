@@ -19,7 +19,7 @@ class RouteHelper{
 
     GetPage(
       name: RoutePaths.homePage,
-      page: ()=> HomePage(),
+      page: ()=> const HomePage(),
       binding: PostBinding(),
     ),
     // GetPage(
