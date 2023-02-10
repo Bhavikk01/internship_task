@@ -5,21 +5,18 @@ import '../screens/home_page.dart';
 import '../screens/post_content.dart';
 import '../services/post_binding.dart';
 
-
-class RouteHelper{
-
-  static List<GetPage> routes=[
-
-    GetPage(
-      name: RoutePaths.postContent,
-      page: ()=> PostContent(
-        postModel: ,
-      ),
-    ),
+class RouteHelper {
+  static List<GetPage> routes = [
+    // GetPage(
+    //   name: RoutePaths.postContent,
+    //   page: ()=> PostContent(
+    //     postModel: ,
+    //   ),
+    // ),
 
     GetPage(
       name: RoutePaths.homePage,
-      page: ()=> const HomePage(),
+      page: () => const HomePage(),
       binding: PostBinding(),
     ),
     // GetPage(
