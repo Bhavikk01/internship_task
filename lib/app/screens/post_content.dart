@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/post_model.dart';
+import '../widgets/post_card.dart';
 
 class PostContent extends StatelessWidget {
   final PostModel postModel;
@@ -8,6 +9,8 @@ class PostContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(
+      body: PostCard(),
+    );
   }
 }

@@ -21,29 +21,26 @@ class PostController extends GetxController{
     for(var data in res.body){
       state.posts.add(PostModel.fromJson(data));
     }
-    log("This is the list: ${state.posts.length}");
     isLoading.value = false;
+    log('Number of posts: ${state.posts.length}');
     scrollController.addListener(getPosts);
     super.onInit();
   }
 
   getPosts() async {
-    log("Function called");
     if(scrollController.hasClients){
-      if(scrollController.position.extentAfter < 10){
-        log("Hello $currentPage");
+      if(scrollController.position.extentAfter < 10 && !isLoadingMore.value){
         isLoadingMore.value = true;
         Response res = await ApiClient
             .to.getData("https://techcrunch.com/wp-json/wp/v2/posts?per_page=5&page=$currentPage");
         for(var data in res.body){
           state.posts.add(PostModel.fromJson(data));
         }
-        log(state.posts.toString());
+        log(res.body.toString());
+        log('Number of posts: ${state.posts.length}');
         isLoadingMore.value = false;
-        log("This is the list: ${state.posts.length}");
         currentPage++;
       }
     }
   }
-
 }

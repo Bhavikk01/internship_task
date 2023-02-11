@@ -19,11 +19,10 @@ class _PostCardState extends State<PostCard> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      //color: Colors.amber,
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 47.h, top: 13.h),
+            padding: EdgeInsets.symmetric(horizontal: 27.h, vertical: 7.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
